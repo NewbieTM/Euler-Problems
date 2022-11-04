@@ -1,0 +1,40 @@
+arr = []
+value = 0
+result = 1
+for x in range(11,100):
+    for y in range(11,100):
+        x_list = list(str(x))
+        y_list = list(str(y))
+        for number in x_list:
+            for number2 in y_list:
+                if number == number2:
+                    x_list.remove(number)
+                    y_list.remove(number)
+        lst_of_x = str(x)[-1:]
+        if int(y_list[0]) != 0:
+            value = int(x_list[0]) / int(y_list[0])
+        value2 = x/y
+        if value2 == value and lst_of_x != '0' and len(x_list) < 2 and x != y and int(y_list[0]) != 0 :
+            if x not in arr:
+                arr.append(x)
+                arr.append(y)
+
+list_for_x = []
+list_for_y = []
+c = 1
+i = 0
+while i < 7:
+    list_for_x.append(arr[i])
+    if c < 9:
+        list_for_y.append( arr[c])
+    c+=2
+    i+=2
+
+numerator = 1
+denominator = 1
+for m in list_for_x:
+    numerator *= m
+for n in list_for_y:
+    denominator *= n
+
+print(denominator/numerator)
