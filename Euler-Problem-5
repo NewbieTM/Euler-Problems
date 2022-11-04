@@ -1,0 +1,39 @@
+def dividers(number):
+    arr_for_function = []
+    count = 0
+    x = 2
+    while number > 1:
+        if number % x == 0:
+            number /= x
+            arr_for_function.append(x)
+            count += 1
+        else:
+            x += 1
+    if count == 0:
+        arr_for_function.append(number)
+    return arr_for_function
+
+
+arr = []
+result = 1
+c = 0
+excluding = []
+
+for i in range(1, 21):
+    arr.append(dividers(i))
+
+for i in range(len(arr)):
+    for j in range(len(arr[i])):
+        for z in excluding:
+            if arr[i][j] == z:
+                c += 1
+                excluding.remove(z)
+                break
+        if c == 0:
+            result *= arr[i][j]
+        c = 0
+
+    for m in range(len(arr[i])):
+        excluding.append(arr[i][m])
+
+print(result)
