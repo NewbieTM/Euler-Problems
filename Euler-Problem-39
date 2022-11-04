@@ -1,0 +1,32 @@
+import math
+
+import time
+
+
+def main():
+    first_number = 0
+    third_number = 1
+    result = 0
+    c = 0
+    for i in range(10,1000):
+        while third_number > i/3:
+            third_number -= 1
+            second_number = i - third_number
+            while first_number < second_number:
+                summary = first_number**2 + second_number**2
+                if summary == third_number**2:
+                    c +=1
+                first_number+=1
+                second_number-=1
+            first_number = 0
+        if result < c:
+            result = c
+            print(i)
+        c = 0
+        third_number = int(i / 2)
+    print(result)
+    
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
+
