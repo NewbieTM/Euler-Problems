@@ -1,0 +1,17 @@
+def isPrime(n):
+    if n % 2 == 0:
+        return n == 2
+    d = 3
+    while d * d <= n and n % d != 0:
+        d += 2
+    return d * d > n
+
+
+arr = []
+i = 1
+while len(arr) < 10002:
+    if isPrime(i):
+        arr.append(i)
+    i+=1
+
+print(arr[len(arr) - 1])
