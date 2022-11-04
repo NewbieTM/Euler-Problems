@@ -1,0 +1,23 @@
+def eratosthenes(n):
+    sieve = list(range(n + 1))
+    sieve[1] = 0   
+    for i in sieve:
+        if i > 1:
+            for j in range(i + i, len(sieve), i):
+                sieve[j] = 0
+    sieve1 = [x for x in sieve if x != 0]
+    return sieve1
+result = []
+arr = eratosthenes(1000000)
+set_arr = set(arr)
+for i in arr:
+    a = []
+    x = str(i)
+    for c in range(0,len(x)):
+        x = x[-1:] + x[:-1]
+        a.append(int(x))
+    set_a = set(a)
+    if set_a.issubset(set_arr):
+        result.append(i)
+
+print(len(result))
