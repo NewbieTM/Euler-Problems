@@ -1,0 +1,26 @@
+import time
+
+
+def main():
+    arr = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+    check_line = ''
+    c=0
+    result = 0
+    for i in range(1, 10000):
+        while len(check_line) < 9:
+            check_line += str(i * arr[c])
+            c+=1
+        check_line = check_line.replace('0','')
+        if len(set(check_line)) == len(check_line):
+            if result < int(check_line):
+                result = int(check_line)
+        c = 0
+        check_line = ''
+    print(i)
+    print(result)
+
+
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
+
