@@ -1,0 +1,12 @@
+a = 0
+b = 0
+excluded = []
+result_array = []
+result = 0
+for a in range(2, 101):
+    for b in range(2, 101):
+        result = a ** b
+        if result not in excluded:
+            result_array.append(result)
+        excluded.append(result)
+print(len(result_array))
