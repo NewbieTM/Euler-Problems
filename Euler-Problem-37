@@ -1,0 +1,48 @@
+import math
+import time
+
+def main():
+    def simple_number(number):
+        if number < 1 or number in [1, 4, 6, 9, 8]: return False
+        for divider in range(2, round(math.sqrt(number))):
+            if number%divider==0:return False
+        return True
+
+    def primes(n):
+        """ Returns  a list of primes < n """
+        sieve = [True] * n
+        for i in range(3, int(n ** 0.5) + 1, 2):
+            if sieve[i]:
+                sieve[i * i::2 * i] = [False] * ((n - i * i - 1) // (2 * i) + 1)
+        return [i for i in range(3, n, 2) if sieve[i]]
+
+    result = 0
+    count = 0
+    arr = (primes(1000000))
+    del arr[0:3]
+    for i in arr:
+        if count == 11:
+            break
+        checker = 0
+        i = str(i)
+        i_cut_from_left = i
+        i_cut_from_right = i
+        while  i_cut_from_left != '' and simple_number(int(i_cut_from_left)):
+            i_cut_from_left = i_cut_from_left[1:]
+            checker += 1
+            if checker == len(i):
+               while i_cut_from_right != '' and simple_number(int(i_cut_from_right)):
+                   i_cut_from_right = i_cut_from_right[:-1]
+                   checker += 1
+                   if checker == 2*len(i):
+                       result += int(i)
+                       print(i)
+                       count +=1
+    print(result)
+
+
+
+
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
