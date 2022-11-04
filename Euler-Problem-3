@@ -1,0 +1,21 @@
+arr3 = []
+i = 2
+number = 600851475143
+while number > 2:
+    if number % i == 0:
+        number = number/i
+        arr3.append(i)
+    i+=1
+
+# Проверка на то, является ли множитель простым
+for x in arr3:
+    if x % 2 == 0:
+        arr3.remove(x)
+        break
+    for j in range(3,round(x/2),2):
+        if x % j == 0:
+            arr3.remove(x)
+            break
+
+print(arr3)
+print(arr3[len(arr3) - 1])
