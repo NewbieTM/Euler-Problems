@@ -1,0 +1,13 @@
+result = 0
+for i in range(1,1000000):
+    i = str(i)
+    i_r = i[::-1]
+    if i == i_r:
+        b = bin(int(i)).replace('b','')
+        if b[0:1] == '0':
+            b = b[1:]
+        b = str(b)
+        b_r = b[::-1]
+        if b == b_r:
+            result += int(i)
+print(result)
