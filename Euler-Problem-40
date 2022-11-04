@@ -1,0 +1,15 @@
+import time
+
+
+def main():
+    line = '.'
+    for i in range(1,1000000):
+        line += str(i)
+    data = list(line)
+    result = int(data[1]) * int(data[10]) * int(data[100]) * int(data[1000]) * int(data[10000]) * int(data[100000]) * int(data[1000000])
+    print(result)
+    
+    
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
