@@ -1,0 +1,8 @@
+result = 0
+for i in range(900,1000):
+    for j in range(900,1000):
+        line = str(i*j)
+        if line == line[::-1]:
+            if i * j > result:
+                result = i * j
+print(result)
