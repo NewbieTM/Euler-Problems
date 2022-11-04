@@ -1,0 +1,13 @@
+import math
+
+arr = []
+for i in range(3,100000):
+    _sum = []
+    i =str(i)
+    for j in i:
+        j = int(j)
+        _sum.append(math.factorial(j))
+        i = int(i)
+        if sum(_sum) == i:
+            arr.append(i)
+print(sum(arr))
