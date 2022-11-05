@@ -1,0 +1,8 @@
+# Moving a huge number to a txt file
+file = open('test.txt','r')
+data = file.readlines()
+result = 0
+for line in data:
+    result += int(line)
+result = str(result)[:10]
+print(result)
