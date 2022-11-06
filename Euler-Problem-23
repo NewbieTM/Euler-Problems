@@ -5,7 +5,7 @@ def main():
     arr_of_redundant = []
     summary = 0
     for i in range(12, 28123):
-        arr = []
+        arr = [1]
         for j in range(2, round(i**0.5) + 1):
             if i % j == 0:
                 arr.append(j)
