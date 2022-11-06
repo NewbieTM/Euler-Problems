@@ -1,0 +1,8 @@
+import math
+
+line = str(math.factorial(100))
+data = list(line)
+result = 0
+for x in data:
+    result += int(x)
+print(result)
