@@ -1,0 +1,12 @@
+beginning = 1001 * 1001
+c = 1000
+res = 1
+checker = 1
+while beginning > 1:
+    res += beginning
+    beginning = beginning - c
+    if checker == 4:
+        c -=2
+        checker = 0
+    checker+=1
+print(res)
