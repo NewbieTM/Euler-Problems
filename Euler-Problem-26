@@ -1,0 +1,11 @@
+def gen():
+    for denominator in range(2, 1001):
+        before = []
+        numerator = 1
+        while not before.count(numerator):
+            before.append(numerator)
+            numerator = 10 * numerator % denominator
+        yield len(before) - before.index(numerator), denominator
+
+
+print('знаменатель = {1}, период = {0}'.format(*max(gen())))
