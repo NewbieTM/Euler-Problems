@@ -1,0 +1,4 @@
+c = 1
+for i in range(20):
+    c = c*(40-i)//(1+i)
+print(c)
