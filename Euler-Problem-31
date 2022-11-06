@@ -1,0 +1,11 @@
+def f(n, m):
+    if n < 0:
+        return 0
+    if n == 0:
+        return 1
+    if len(m) == 1:
+        return n % m[0] == 0
+    return f(n - m[0], m) + f(n, m[1:])
+
+
+print(f(200, [200, 100, 50, 20, 10, 5, 2, 1]))
