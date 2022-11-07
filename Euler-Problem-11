@@ -49,5 +49,5 @@ print(max(arr))
 
 
 # right-diagonal
-#arr.append(positive_directions(data, 0, 336, 21, 16))
+#arr.append(positive_sign_of_directions(data, 0, 336, 21, 16))
 #print(arr)
