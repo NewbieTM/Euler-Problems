@@ -7,7 +7,7 @@ def directions(data, direction, count, step, checker=999):
         if not direction % checker == 0:
             direction += 1
         else:
-            direction += 4
+            direction += 3
     return result
 
 
@@ -37,7 +37,7 @@ arr = []
 result = 0
 
 # left
-arr.append(directions(data, 4, 400, 1, 20))
+arr.append(directions(data, 3, 400, 1, 20))
 # up
 arr.append(directions(data, 60, 400, 20))
 # left-diagonal
