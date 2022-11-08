@@ -1,0 +1,38 @@
+
+import time
+
+def main():
+    def isPandigit(arr):
+        res = 0
+        for x in arr:
+            x_str = str(x)
+            if '0' not in x_str:
+                arr = []
+                c = 0
+                for i in range(1,len(x_str)+1):
+                    arr.append(i)
+                for number in x_str:
+                    if int(number) in arr:
+                        arr.remove(int(number))
+                        c+=1
+                if res < x and c == len(x_str):
+                    res = (x)
+
+        return res
+
+    def primes(n):
+        """ Returns  a list of primes < n """
+        sieve = [True] * n
+        for i in range(3, int(n ** 0.5) + 1, 2):
+            if sieve[i]:
+                sieve[i * i::2 * i] = [False] * ((n - i * i - 1) // (2 * i) + 1)
+        return [2] + [i for i in range(3, n, 2) if sieve[i]]
+
+
+    print(isPandigit(primes(10000000)))
+
+
+
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
