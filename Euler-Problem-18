@@ -1,7 +1,3 @@
-j = 0
-value = 0
-i = 0
-c = 1
 srcStr = '''75
 95 64
 17 47 82
@@ -17,27 +13,17 @@ srcStr = '''75
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'''
-
 srcList = []
-maxvalue = 75
+
 for ss in srcStr.split('\n'):
     srcList.append(ss.split(' '))
-value = 0
-next_index = 0
-index = 0
-while i < len(srcList):
-    previous_value = maxvalue
-    if i > 0:
-        maxvalue = 0
-        next_index = len(srcList[i - 1]) - srcList[i - 1][::-1].index(str(previous_value)) - 1
-        # srcList[i - 1].index(str(previous_value))
-        for j in range(0,len(srcList[i])-1):
-            index = j
-            if next_index - index == -1 or abs(next_index - index) == 0:
-                if int(maxvalue) <= int(srcList[i][j]):
-                    maxvalue = int(srcList[i][j])
-    index = srcList[i].index(str(maxvalue))
-    c+=1
-    i += 1
-    value += int(maxvalue)
-print(value)
+
+for number in range(len(srcList) - 2, -1, -1):
+    new_line = []
+    for n in range(len(srcList[number])):
+        new_line.append(int(srcList[number][n]) + max(int(srcList[number+1][n]), int(srcList[number+1][n + 1])))
+    srcList[number] = new_line[:]
+    if number == 0:
+        break
+for number in range(len(srcList) - 2, -1, -1):
+    print(number,srcList[number])
