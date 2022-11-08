@@ -7,16 +7,12 @@ for i in range(10,10000):
             arr.append(j)
             n = i // j
             arr.append(n)
-            if n not in arr:
-                arr.append(n)
     number = sum(arr)
     for x in range(2,round(number **0.5 ) + 1):
         if number % x == 0:
             arr2.append(x)
             n = number // x
             arr2.append(n)
-            if n not in arr:
-                arr.append(n)
     if i == sum(arr2) and i != number:
         res += i + number
 
