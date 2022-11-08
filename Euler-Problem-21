@@ -1,52 +1,24 @@
+res = 0
+for i in range(10,10000):
+    arr = [1]
+    arr2 = [1]
+    for j in range(2, round(i ** 0.5) + 1):
+        if i % j == 0:
+            arr.append(j)
+            n = i // j
+            arr.append(n)
+            if n not in arr:
+                arr.append(n)
+    number = sum(arr)
+    for x in range(2,round(number **0.5 ) + 1):
+        if number % x == 0:
+            arr2.append(x)
+            n = number // x
+            arr2.append(n)
+            if n not in arr:
+                arr.append(n)
+    if i == sum(arr2) and i != number:
+        res += i + number
 
-import collections
-import itertools
+print(int(res / 2))
 
-
-def get_prime_divisors(n):
-    i = 2
-    while i * i <= n:
-        if n % i == 0:
-            n /= i
-            yield i
-        else:
-            i += 1
-
-    if n > 1:
-        yield n
-
-
-def calc_product(iterable):
-    acc = 1
-    for i in iterable:
-        acc *= i
-    return acc
-
-
-def get_all_divisors(n):
-    primes = get_prime_divisors(n)
-
-    primes_counted = collections.Counter(primes)
-
-    divisors_exponentiated = [
-        [div ** i for i in range(count + 1)]
-        for div, count in primes_counted.items()
-    ]
-
-    for prime_exp_combination in itertools.product(*divisors_exponentiated):
-        yield calc_product(prime_exp_combination)
-
-i = 2
-value = 0
-result = 0
-while i <= 10000:
-    sheet = list(get_all_divisors(i))
-    sheet = sheet[0:len(sheet) - 1]
-    value += sum(sheet)
-    sheet2 = list(get_all_divisors(value))
-    sheet2 = sheet2[0:len(sheet2) - 1]
-    if sum(sheet2) == i and i != value:
-        result += i + value
-    i +=1
-    value = 0
-print(result / 2)
