@@ -1,0 +1,19 @@
+import time
+from itertools import permutations
+
+start = time.time()
+p = permutations('0123456789')
+solution = 0
+for i in p:
+    if (int(''.join(i[7:10])) % 17 == 0 and
+            int(''.join(i[6:9])) % 13 == 0 and
+            int(''.join(i[5:8])) % 11 == 0 and
+            int(''.join(i[4:7])) % 7 == 0 and
+            int(''.join(i[3:6])) % 5 == 0 and
+            int(''.join(i[2:5])) % 3 == 0 and
+            int(''.join(i[1:4])) % 2 == 0):
+        solution += int(''.join(i))
+
+print(solution)
+end = time.time()
+print(end - start)
