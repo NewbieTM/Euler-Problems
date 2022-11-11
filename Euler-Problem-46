@@ -1,0 +1,38 @@
+def isInt(n):
+    return int(n) == float(n)
+
+
+def isComposite(n):
+    if n % 2 == 0:
+        return True
+    for d in range(3, int(n ** 0.5) + 1, 2):
+        if n % d == 0:
+            return True
+    return False
+
+
+def primes(n):
+    sieve = [True] * n
+    for i in range(3, int(n ** 0.5) + 1, 2):
+        if sieve[i]:
+            sieve[i * i::2 * i] = [False] * ((n - i * i - 1) // (2 * i) + 1)
+    return [2] + [i for i in range(3, n, 2) if sieve[i]]
+
+
+flag = True
+i = 4
+arr = primes(1_000_000)
+while flag:
+    if isComposite(i) and i % 2 == 1:
+        c = 0
+        for n in arr:
+            if n < i:
+                difference = ((i - n) / 2) ** 0.5
+                if isInt(difference):
+                    c += 1
+            else:
+                break
+        if c == 0:
+            flag = False
+            print(i)
+    i += 1
