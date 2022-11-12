@@ -1,0 +1,45 @@
+import time
+start= time.time()
+
+def get_prime_divisors(n):
+    res = []
+    i = 2
+    while i * i < n + 1:
+        c = 1
+        while n % i == 0:
+            n //= i
+            if c > 1:
+                res.pop(-1)
+                res.append(i ** c)
+            else:
+                res.append(i)
+            c += 1
+        i += 1
+    if n != 1:
+        res.append(n)
+    return res
+
+
+flag = True
+i = 37960
+while flag:
+    c = 1
+    arr = get_prime_divisors(i)
+    if len(arr) == 4:
+        arr = get_prime_divisors(i + 1)
+        c += 1
+        if len(arr) == 4:
+            arr = get_prime_divisors(i + 2)
+            c += 1
+            if len(arr) == 4:
+                arr = get_prime_divisors(i + 3)
+                if len(arr) == 4:
+                    c+=1
+    if c == 4:
+        flag = False
+        print(i)
+    i += 1
+
+
+end = time.time()
+print(end - start)
