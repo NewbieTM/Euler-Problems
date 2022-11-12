@@ -1,13 +1,13 @@
 arr3 = []
 i = 2
-number = 75612321
+number = 212
 sqrt_of_number = number**0.5
 while number > sqrt_of_number:
     if number % i == 0:
         number = int(number / i)
         arr3.append(i)
     i+=1
-if number != 1:
+if number != 1 and number not in arr3:
     arr3.append(number)
 arr_result = []
 # Проверка на то, является ли множитель простым
