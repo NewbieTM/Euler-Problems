@@ -1,0 +1,17 @@
+def isPrime(n):
+    if n % 2 == 0:
+        return False
+    for d in range(3,round(n**0.5)+1,2):
+        if n % d == 0:
+            return False
+    return True
+
+for i in range(1000,10000):
+    set_i = set(str(i))
+    set_j = set(str(i+3330))
+    set_k = set(str(i+6660))
+    if set_i.issubset(set_j) and set_j.issubset(set_k):
+        if isPrime(i) and isPrime(i+3330) and isPrime(i+6660):
+            print(i, i + 3330, i + 6660)
+            print(str(i) + str(i + 3330) +  str(i + 6660))
+            print()
