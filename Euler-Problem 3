@@ -1,11 +1,14 @@
 arr3 = []
 i = 2
-number = 600851475143
-flag = True
-while i < number ** 0.5:
+number = 75612321
+sqrt_of_number = number**0.5
+while number > sqrt_of_number:
     if number % i == 0:
+        number = int(number / i)
         arr3.append(i)
     i+=1
+if number != 1:
+    arr3.append(number)
 arr_result = []
 # Проверка на то, является ли множитель простым
 for x in arr3:
@@ -21,4 +24,4 @@ for x in arr3:
 
 
 print(arr_result)
-print(arr_result[-1])
+print(max(arr_result))
