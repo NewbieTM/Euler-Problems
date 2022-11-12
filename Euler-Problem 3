@@ -1,6 +1,6 @@
 arr3 = []
 i = 2
-number = 212
+number = 600851475143
 sqrt_of_number = number**0.5
 while number > sqrt_of_number:
     if number % i == 0:
