@@ -17,7 +17,7 @@ arr = primes(1_000_000)
 value = 0
 k = 0
 res = 0
-while k < 100:
+while k < 500:
     c = 0
     for x in arr:
         value += x
@@ -27,6 +27,6 @@ while k < 100:
                 res = c
                 number = value
     arr.pop(0)
+    k = arr[0]
     value = 0
-    k+=1
 print(res,number)
